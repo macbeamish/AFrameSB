@@ -10,7 +10,7 @@
 
     </head>
     <body>
-        <a-scene embedded arjs>
+        <a-scene>
             <a-marker-camera preset='hiro'></a-marker-camera>
             <!-- define gltf assetS/ 3D models -->
             <a-assets>
@@ -24,11 +24,41 @@
                 <a-asset-item id="rock" src="./assets/3D Models/Obstacles/"></a-asset-item>
             </a-assets>
 
+            <!-- ENVIRONMEMT -->
+            <!-- floor -->
+            <!-- <a-plane material="color: grey";
+                              src="";
+                              repeat: 5 5; 
+                    rotation="-90 0 0 " scale="10 10 1">
+            </a-plane> -->
+
+            <!-- sky -->
+            <!-- <a-sky color="white">
+            </a-sky> -->
+            <a-box color="red" scale="2 2 2">  
+               <a-animation attribute="scale"
+                            to="5 1 0.5"
+                            repeat="indefinite"
+                            direction="alternate"
+                            dur="3000"
+                            easing="ease-out">
+                </a-animation>
+            </a-box>
+            <a-box color="blue" scale ="2 2 4" position="5 2 3">
+                <a-animation attribute="rotation"
+                             to="0 -360 0"
+                             repeat="indefinite"
+                             dur="5000"
+                             easing="linear">
+                </a-animation>
+            </a-box>
             <!-- Entities -->
-           <a-entity gltf-model="#santa"></a-entity>
+             <!-- template entity  -->
            <a-entity gltf-model="#"></a-entity>
-            <!-- <a-sphere src="https://media3.giphy.com/media/jpbnoe3UIa8TU8LM13/200w.webp?cid=ecf05e47qe2pbghpqyk6jv3andzqwx1033l93etcprfidqzd&rid=200w.webp&ct=g" color="red"  position="0 1.5 -2"></a-sphere>
-            <a-plane src="https://media0.giphy.com/media/TTkLWsNBXBMQDWGMr9/giphy.gif?cid=ecf05e47oxcklvrv6srg1cr8ip2cua6a5vyb7aac2lslox90&rid=giphy.gif&ct=g" width = "10" height = "10" position = "0 0 -5"></a-plane> -->
+
+           <!-- content -->
+            <a-sphere src="https://media3.giphy.com/media/jpbnoe3UIa8TU8LM13/200w.webp?cid=ecf05e47qe2pbghpqyk6jv3andzqwx1033l93etcprfidqzd&rid=200w.webp&ct=g" color="red"  position="0 1.5 -2"></a-sphere>
+            <a-plane src="https://media0.giphy.com/media/TTkLWsNBXBMQDWGMr9/giphy.gif?cid=ecf05e47oxcklvrv6srg1cr8ip2cua6a5vyb7aac2lslox90&rid=giphy.gif&ct=g" width = "10" height = "10" position = "0 0 -5"></a-plane>
          </a-scene>
         
     </body>

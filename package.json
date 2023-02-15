@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/macbeamish/AFrameSB#readme",
   "devDependencies": {
-    "@types/jquery": "^3.5.16"
+    
   }
 }
