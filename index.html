@@ -1,0 +1,35 @@
+<html>
+    <head>
+
+        <!-- include A-Frame -->
+        <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+        <!-- include ar.js for A-Frame !!! NEED TO CHECK MOST CURRENT VERSION -->
+        <!-- <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script> -->
+        
+        <script src = "animations.js"></script>
+
+    </head>
+    <body>
+        <a-scene embedded arjs>
+            <a-marker-camera preset='hiro'></a-marker-camera>
+            <!-- define gltf assetS/ 3D models -->
+            <a-assets>
+                <!-- Lands -->
+                <a-asset-item id="santa" src="./assets/3D Models/Lands/"></a-asset-item>
+
+                <!-- Bonuses -->
+                <a-asset-item id="cookie" src="./assets/3D Models/Bonuses/"></a-asset-item>
+
+                <!-- Obstacles -->
+                <a-asset-item id="rock" src="./assets/3D Models/Obstacles/"></a-asset-item>
+            </a-assets>
+
+            <!-- Entities -->
+           <a-entity gltf-model="#santa"></a-entity>
+           <a-entity gltf-model="#"></a-entity>
+            <!-- <a-sphere src="https://media3.giphy.com/media/jpbnoe3UIa8TU8LM13/200w.webp?cid=ecf05e47qe2pbghpqyk6jv3andzqwx1033l93etcprfidqzd&rid=200w.webp&ct=g" color="red"  position="0 1.5 -2"></a-sphere>
+            <a-plane src="https://media0.giphy.com/media/TTkLWsNBXBMQDWGMr9/giphy.gif?cid=ecf05e47oxcklvrv6srg1cr8ip2cua6a5vyb7aac2lslox90&rid=giphy.gif&ct=g" width = "10" height = "10" position = "0 0 -5"></a-plane> -->
+         </a-scene>
+        
+    </body>
+</html>
