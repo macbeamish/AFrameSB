@@ -6,7 +6,7 @@
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
   <body style="margin : 0px; overflow: hidden;">
     <a-scene embedded arjs>
-      <a-marker type="pattern" patternUrl="./assets/Marker/marker.patt">
+      <a-marker-camera type="pattern" url="./assets/Marker/marker.patt">
         <!-- we use cors proxy to avoid cross-origin problems -->
         <!--
           ⚠️⚠️⚠️
@@ -27,7 +27,7 @@
         <a-entity>
          <a-box color="red" scale = "0.2 0.2 0.2"></a-box>
         </a-entity>
-      </a-marker>
+      </a-marker-camera>
       <a-entity camera></a-entity>
     </a-scene>
   </body>
