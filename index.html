@@ -40,12 +40,12 @@
     embedded
     arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
   >
-    <a-assets>
+    <!-- <a-assets> -->
             <!-- Lands -->
-            <a-asset-item id="trex" src="trex.gltf"></a-asset-item>
+            <!-- <a-asset-item id="trex" src="trex.gltf"></a-asset-item> -->
 
  
-        </a-assets>
+        <!-- </a-assets> -->
     <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
     <a-nft
       type="nft"
@@ -55,13 +55,14 @@
       smoothTolerance=".01"
       smoothThreshold="5"
     >     
-      <a-entity
+      <a-box color="red" scale = "0.2 0.2 0.2"></a-box>
+      <!-- <a-entity
         gltf-model="#trex"
         scale="0.5 0.5 0.5"
         position="0 0 0.5"
         modify-materials
       >
-      </a-entity>
+      </a-entity> -->
     </a-nft>
     <a-entity camera></a-entity>
   </a-scene>
