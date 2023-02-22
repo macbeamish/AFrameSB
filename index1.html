@@ -1,37 +1,63 @@
-      <!-- Must be run on a secure HTTPS Server -- Github pages?-->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,user-scalable=no,maximum-scale=1">
+   <!-- Must be run on a secure HTTPS Server -- Github pages?-->
 <!-- import aframe and then ar.js with image tracking / location based features -->
 <!-- A-Frame -->
 <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
 <!-- AR.js -->
 <!-- <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script> -->
 <!-- Extras -->
+<script src="https://unpkg.com/aframe-environment-component@1.3.1/dist/aframe-environment-component.min.js"></script>
+
 <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@fb96ab2/dist/aframe-extras.min.js"></script>
+
+<!-- Ammo Physics -->
+<script src="https://cdn.jsdelivr.net/gh/MozillaReality/ammo.js@8bbc0ea/builds/ammo.wasm.js"></script>
+
+<!-- Cannon Physics -->
+<!-- <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-physics-system@v4.2.2/dist/aframe-physics-system.min.js"></script> -->
+
+<!-- A-Frame Physics -->
+<script src="./dist/aframe-physics-system.js"></script>
+
 <!-- Remote Debugging -->
 <script data-consolejs-channel="43507319-75a7-36fc-99e5-32f3cedabbb7" src="https://remotejs.com/agent/agent.js"></script>
+
+<!-- Game Logic -->
+<script src="./game.js"></script>
 </style>
 
-<body style="margin : 0px; overflow: hidden;">
+<body>
 
-  <a-scene
+  <a-scene physics="driver: ammo; debug: true; debugDrawMode: 1;" stats="true">
+    <!-- <a-scene  physics="gravity: -9.8, debug: true driver: Cannon"> -->
 
-  >
+    <a-entity camera look-controls wasd-controls position="0 1.6 3"></a-entity>
+
+  
     <a-assets>
             <!-- Lands -->
             <a-asset-item id="skelly" src="./assets/3dmodels/Skeleton.gltf"></a-asset-item>
-
- 
-        </a-assets>
+    </a-assets>    
     <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
-      
+      <a-plane color="green" scale =" 50 50 1"  rotation="-90 0 0" ammo-body="type: static" ammo-shape="box"></a-plane>
+      <a-box color="red" scale="1 1 1" position ="0 0 0.05" animation="property: rotation; to: 0 360 0; loop: true; dur: 1000"  ></a-box>
       <a-entity>
         <a-box color="red" scale = "50 50 50" position="1 5 0.2"></a-box>
       </a-entity>
       <a-entity
+        id="skeleton"
         gltf-model="#skelly"
         scale="1 1 1"
-        position="0 0 0.05"
-        rotation="-90 0 0"
+        position="0 5 -5"
+        rotation="0 0 0"
+        ammo-body="type: dynamic"
+        ammo-shape="type: box"
+        jump
+        
       >
+      
       </a-entity>
   </a-scene>
 </body>
