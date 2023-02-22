@@ -9,12 +9,22 @@
 //     scene.addEventListener('loaded', moveUp);
 // }
 
-AFRAME.registerComponent("jump",{
+// AFRAME.registerComponent("jump",{
+//     init: function(){
+//         var el = this.el;
+//         el.addEventListener('click', function(){
+//             var newPos = "0 7 -5"
+//             el.setAttribute('position', newPos);
+//         });
+//     }
+// });
+
+AFRAME.registerComponent("random-hex", {
     init: function(){
         var el = this.el;
         el.addEventListener('click', function(){
-            var newPos = "0 7 -5"
-            el.setAttribute('position', newPos);
+            var hex = "#" + Math.random().toString(16).substring(-6);
+            el.setAttribute('material', 'color', hex);
         });
     }
 });

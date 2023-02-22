@@ -33,7 +33,7 @@
   <a-scene physics="driver: ammo; debug: true; debugDrawMode: 1;" stats="true">
     <!-- <a-scene  physics="gravity: -9.8, debug: true driver: Cannon"> -->
 
-    <a-entity camera look-controls wasd-controls position="0 1.6 3"></a-entity>
+    <a-entity camera look-controls wasd-controls position="0 1.6 3"><a-camera look-controls="pointerLockEnabled: true"><a-cursor></a-cursor></a-camera></a-entity>
 
   
     <a-assets>
@@ -41,10 +41,10 @@
             <a-asset-item id="skelly" src="./assets/3dmodels/Skeleton.gltf"></a-asset-item>
     </a-assets>    
     <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
-      <a-plane color="green" scale =" 50 50 1"  rotation="-90 0 0" ammo-body="type: static" ammo-shape="box"></a-plane>
-      <a-box color="red" scale="1 1 1" position ="0 0 0.05" animation="property: rotation; to: 0 360 0; loop: true; dur: 1000"  ></a-box>
+      <a-plane color="green" scale =" 50 50 1"  rotation="-90 0 0" ammo-body="type: static" ammo-shape="mesh"></a-plane>
+      <a-box color="red" scale="1 1 1" position ="0 0 0.05" animation="property: rotation; to: 0 360 0; loop: true; dur: 1000" random-hex  ></a-box>
       <a-entity>
-        <a-box color="red" scale = "50 50 50" position="1 5 0.2"></a-box>
+        <a-box color="blue" scale = "50 50 50" position="1 5 0.2"></a-box>
       </a-entity>
       <a-entity
         id="skeleton"
@@ -53,7 +53,7 @@
         position="0 5 -5"
         rotation="0 0 0"
         ammo-body="type: dynamic"
-        ammo-shape="type: box"
+        ammo-shape="type: mesh"
         jump
         
       >
