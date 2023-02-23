@@ -39,7 +39,7 @@
 <a-box    id="backboard" position="0 2 -5" width="1" height="1" depth="0.2" 
     ammo-body="type: static; emitCollisionEvents: true;" ammo-shape="type: box"  
     material="color: tomato;"></a-box>
-<a-sphere id="ball" class="clickable" position="0 0 -2" radius="0.15" 
+<a-sphere id="ball" class="clickable" position="0 0.1 -2" radius="0.15" 
     material="color: cyan;" foo></a-sphere>>
   
 
@@ -53,20 +53,22 @@
     <!-- we use cors proxy to avoid cross-origin problems ATTENTION ammo-shape="mesh"! you need to set up your server -->
     <!--  ammo-shape="mesh" -->
       <a-box color="green" scale =" 50 50 0.01"  rotation="-90 0 0" ammo-body="type: static; emitCollisionEvents: true" ammo-shape></a-box>
-      <a-box color="red" scale="1 1 1" position ="0 0 0.05" animation="property: rotation; to: 0 360 0; loop: true; dur: 1000" random-hex class="clickable" ></a-box>
-      <a-entity>
-        <a-box color="blue" scale = "50 50 50" position="1 5 0.2"></a-box>
-      </a-entity >
-      <a-box id="bb" box-jump class="clickable" color="blue" scale="1 1 1" position = "-2 5 -2" ammo-body="type: dynamic; emitCollisionEvents: true;" ammo-shape="type: box" ></a-box>
+      <a-box color="red" scale="1 1 1" position ="2 0.1 -3" animation="property: rotation; to: 0 360 0; loop: true; dur: 1000" random-hex class="clickable" ></a-box>
+      <a-entity id="bb" geometry="primitive: box" material="color: blue" id="bb" box-jump class="clickable" 
+                scale="1 2 1" position = "-2 5 -2" ammo-body="type: dynamic; emitCollisionEvents: true;"
+                ammo-shape="type: box"></a-entity>
+
+      
+      <!-- <a-box id="bb" box-jump class="clickable" color="blue" scale="1 1 1" position = "-2 5 -2" ammo-body="type: dynamic; emitCollisionEvents: true;" ammo-shape="type: box" ></a-box> -->
       <a-entity
         
         class="clickable"
         id="skeleton"
         gltf-model="#skelly"
         scale="1 1 1"
-        position="0 0.1 -3"
+        position="1 0.1 -3"
         rotation="0 0 0"
-        ammo-body="type: static; emitCollisionEvents: true;"
+        ammo-body="type:static ; emitCollisionEvents: true;"
         sprite-jump
       
         

@@ -5,29 +5,31 @@ AFRAME.registerComponent("box-jump", {
     init: function() {
       // when clicked attach the body and the shape, and apply the impulse
       this.el.addEventListener("click", evt => {
-        console.log("box clicked");
-        this.el.setAttribute("ammo-body", {
-            type: "dynamic"
-          });
-          console.log("ammo-body set to dynamic");
-          this.el.setAttribute("ammo-shape", {
-            type: "box",
-            fit: "manual",
-            halfExtents: { x: 1, y: 1, z: 1 }
+        
+            console.log("box clicked");
+            this.el.setAttribute("ammo-body", {
+                type: "dynamic"         
+            });
+            console.log("ammo-body set to dynamic");
+            this.el.setAttribute("ammo-shape", {
+                type: "box",
+                fit: "manual",
+                halfExtents: { x: 1, y: 1, z: 1 }
 
-           
-          });
-          console.log("ammo-shape set to hull");
-        const force = new Ammo.btVector3(0, 5, 0);
-        console.log("force set to 0, 2, 0");
-        const pos = new Ammo.btVector3(bb.object3D.position.x, bb.object3D.position.y, bb.object3D.position.z);
-        console.log("position set to skeleton position");
-        bb.body.applyImpulse(force);
-        console.log("impulse applied");
-        Ammo.destroy(force);
-        console.log("force destroyed");
-        Ammo.destroy(pos);
-        console.log("position destroyed");
+            
+            });
+            console.log("ammo-shape set to hull");
+            const force = new Ammo.btVector3(0, 5, 0);
+            console.log("force set to 0, 2, 0");
+            const pos = new Ammo.btVector3(bb.object3D.position.x, bb.object3D.position.y, bb.object3D.position.z);
+            console.log("position set to skeleton position");
+            bb.body.applyImpulse(force);
+            console.log("impulse applied");
+            Ammo.destroy(force);
+            console.log("force destroyed");
+            Ammo.destroy(pos);
+            console.log("position destroyed");
+    
       })
     }
   })
@@ -62,8 +64,9 @@ AFRAME.registerComponent("random-hex", {
     init: function(){
       this.el.addEventListener("click", evt => {
         console.log("box clicked")
+        var colors  = ["red", "green", "blue", "yellow", "purple", "orange ", "pink", "black", "white"];
         this.el.setAttribute("material", {
-          color: "white"
+          color: colors[Math.floor(Math.random() * colors.length)]
         });
         });
     }
