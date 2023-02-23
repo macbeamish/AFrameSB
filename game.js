@@ -1,19 +1,60 @@
 console.log("game.js loaded");
+
+
+AFRAME.registerComponent("box-jump", {
+    init: function() {
+      // when clicked attach the body and the shape, and apply the impulse
+      this.el.addEventListener("click", evt => {
+        console.log("box clicked");
+        this.el.setAttribute("ammo-body", {
+            type: "dynamic"
+          });
+          console.log("ammo-body set to dynamic");
+          this.el.setAttribute("ammo-shape", {
+            type: "box",
+            fit: "manual",
+            halfExtents: { x: 1, y: 1, z: 1 }
+
+           
+          });
+          console.log("ammo-shape set to hull");
+        const force = new Ammo.btVector3(0, 5, 0);
+        console.log("force set to 0, 2, 0");
+        const pos = new Ammo.btVector3(bb.object3D.position.x, bb.object3D.position.y, bb.object3D.position.z);
+        console.log("position set to skeleton position");
+        bb.body.applyImpulse(force);
+        console.log("impulse applied");
+        Ammo.destroy(force);
+        console.log("force destroyed");
+        Ammo.destroy(pos);
+        console.log("position destroyed");
+      })
+    }
+  })
 AFRAME.registerComponent("sprite-jump", {
     init: function() {
       // when clicked attach the body and the shape, and apply the impulse
-      this.el.addEventListener("keydown", evt => {
-        if(keyCode === 32 ){
+      this.el.addEventListener("click", evt => {
+        console.log("sprite clicked");
+        this.el.setAttribute("ammo-body", {
+            type: "dynamic"
+          });
+          console.log("ammo-body set to dynamic");
+          this.el.setAttribute("ammo-shape", {
+            type: "hull",
+           
+          });
+          console.log("ammo-shape set to hull");
         const force = new Ammo.btVector3(0, 2, 0);
+        console.log("force set to 0, 2, 0");
         const pos = new Ammo.btVector3(skeleton.object3D.position.x, skeleton.object3D.position.y, skeleton.object3D.position.z);
-        ball.body.applyImpulse(force, pos);
+        console.log("position set to skeleton position");
+        skeleton.body.applyImpulse(force);
+        console.log("impulse applied");
         Ammo.destroy(force);
-        Ammo.destroy(pos);}
-        else{console.log("wrong key")}
-      })
-      // check if the events are working by changing a the boxes color
-      document.querySelector("#backboard").addEventListener("collidestart", evt => {
-        document.querySelector("#backboard").setAttribute("color", "green");
+        console.log("force destroyed");
+        Ammo.destroy(pos);
+        console.log("position destroyed");
       })
     }
   })
