@@ -48,7 +48,7 @@ AFRAME.registerComponent("sprite-jump", {
           });
           console.log("ammo-shape set to hull");
         const force = new Ammo.btVector3(0, 2, 0);
-        console.log("force set to 0, 2, 0");
+        console.log("force set to 0, 5, 0");
         const pos = new Ammo.btVector3(skeleton.object3D.position.x, skeleton.object3D.position.y, skeleton.object3D.position.z);
         console.log("position set to skeleton position");
         skeleton.body.applyImpulse(force);
